@@ -1,0 +1,47 @@
+This dataset represents verb/noun paradigm categorization for three languages:
+
+* German nouns (de_n.txt), German verbs (de_v.txt)
+* Finnish nouns/adjectives (fi_na.txt), Finnish verbs (fi_v.txt)
+* Spanish verbs (es_v.txt)
+
+Each file is in a two-column format, one word/lemma per line with the paradigm information in the first column. For example, the Spanish verbs are represented as follows:
+
+...
+0       cantar
+0       precisar
+0       denigrar
+0       aventajar
+...
+1       antagonizar
+1       economizar
+1       nacionalizar
+1       fertilizar
+...
+
+Meaning that "cantar" belongs to conjugation class 0, "antagonizar" to class 1, etc.
+
+The number of conjugation/declension classes are as follows:
+
+de_n: 70
+de_v: 140
+fi_na: 258
+fi_v: 282
+es_v: 97
+
+The raw inflection tables were originally scraped from Wiktionary by Durrett & DeNero (2013).  Lemmas were then grouped into paradigms by class grouping algorithm by Hulden (2014) and Ahlberg et al. (2014).
+
+== References ==
+
+Ahlberg, M., Forsberg, M., & Hulden, M. (2014). Semi-supervised learning of morphological paradigms and lexicons. EACL 2014. Association for Computational Linguistics.
+
+Durrett, G., & DeNero, J. (2013). Supervised learning of complete morphological paradigms. HLT-NAACL 2013. Association for Computational Linguistics.
+
+Hulden, M. (2014). Generalizing inflection tables into paradigms with finite state operations. MORPHFSM 2014. Association for Computational Linguistics.
+
+
+== License ==
+
+These data are placed in the public domain under the Creative Commons
+Attribution-ShareAlike 3.0 Unported license.
+
+http://creativecommons.org/licenses/by-sa/3.0/
