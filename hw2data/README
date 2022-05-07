@@ -1,0 +1,9 @@
+pos.train: raw text from 1,000 positive reviews, no separation of reviews.
+neg.train: raw text from 1,000 positive reviews, no separation of reviews.
+
+The test-folder contains two subfolders:
+
+pos/
+neg/
+
+Each contains 100 separate files with positive (pos) or negative (neg) reviews. These reviews are not in the training data and should be used to evaluate classifier accuracy by applying the learned classifier to each of the 200 files and calculating accuracy.
