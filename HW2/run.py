@@ -1,6 +1,7 @@
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
-
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
 
 def GetPosTest(TestLocation):
     lines = [line.strip() for line in open(TestLocation)]
@@ -25,13 +26,14 @@ def GetPositiveTrain():
     return poswords, posPolarity
 
 def GetNegativeTrain():
-    lines = [line.strip() for line in open('neg.train')]
+    lines = [line.strip() for line in open('hw2data/neg.train')]
     negwords = []
     negPolarity = []
 
     for l in lines:
-        negPolarity.append(0)
         negwords.extend(l.split())
+    for i in range(len(negwords)):
+        negPolarity.append(0)
         
     return negwords, negPolarity
 
@@ -39,12 +41,15 @@ def classifer(string):
     pass
 
 def main():
-    x, y = GetPositiveTrain()
-    X_train, X_test, y_train, y_test = train_test_split(x, y)
-    print(y_train)
+    posx, posy = GetPositiveTrain()
+    negx, negy = GetNegativeTrain()
+    x = np.array(posx + negx)
+    y = np.array(posy+negy)
+    Vec = CountVectorizer(stop_words='english')
+    x = Vec.fit_transform(x).toarray()
     #  = GetPosTest("hw2data/test/pos/cv009_29592.txt")
     gnb = GaussianNB()
-    y_pred = gnb.fit(X_train, y_train).pred(X_test)
+    Boom = gnb.fit(x,y)
 
 if __name__ == '__main__': 
     main()
